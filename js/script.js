@@ -23,8 +23,8 @@ $( document ).ready(function() {
   console.log(numeriGenerati);
   alert("Riuscirai a ricordati questi numeri?\n\n"  + '     ' + numeriGenerati);
 
-  // Funzione Timer (10secondi)
-  setTimeout(timer, 3000);
+  // Funzione Timer (10 secondi)
+  setTimeout(timer, 10000);
   function timer() {
 
     while (numeriUtente.length < 5) {
@@ -41,7 +41,20 @@ $( document ).ready(function() {
         alert("Hai già inserito questo numero!");
       }
     }
-  } 
+    console.log(numeriUtente);
+
+    for (var i = 0; i < numeriUtente.length; i++) {
+      var numeroGiusto = numeriUtente[i];
+
+      if (numeriGenerati.includes(numeroGiusto) == true) {
+        numeriRicordati.push(numeroGiusto);
+      }
+    }
+    // Stampa finale dei numeri ricordati
+    console.log(numeriRicordati);
+    alert("Hai ricordato " + numeriRicordati.length + " numeri su 5 che sono " + ' ' + numeriRicordati);
+
+  }
 });
 
 
